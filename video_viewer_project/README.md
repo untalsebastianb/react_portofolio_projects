@@ -12,5 +12,5 @@ This project was made with React JS, it a plaform where you can see a list of yo
 7. Run the project ▶️ : yarn start or npm start 
 
 ### 📝 I wrote some personal notes, Feel free to check it out
-    [myNotes.pdf](myNotes.pdf)
+[myNotes.pdf](./myNotes.pdf)
 
