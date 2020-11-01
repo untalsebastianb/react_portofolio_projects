@@ -1,15 +1,10 @@
 import React from 'react'
 import logoConf from '../images/badge-header.svg'
-
 import './styles/Badge.css'
 import myAvatar from './styles/sebastiann.png'
 
 class Badge extends React.Component {
   render() {
-
-    // this.props = {
-
-    // }
 
     return (
       <div className='Badge'>
@@ -23,8 +18,8 @@ class Badge extends React.Component {
         </div>
 
         <div className='Badge__section-info'>
-          <h3>Frontend Engineer</h3>
-          <div>@untalsebastianb</div>
+          <h3>{this.props.job}</h3>
+          <div>{this.props.twitter}</div>
         </div>
 
         <div className='Badge__footer'>
