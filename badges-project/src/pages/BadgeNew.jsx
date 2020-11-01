@@ -8,13 +8,21 @@ import BadgeForm from '../components/BadgeForm'
 
 class BadgeNew extends Component {
 
-  state = { form: {} }
+  state = {
+    form: {
+      firstName: '',
+      lastName: '',
+      Email : '',
+      jobTitle: '',
+      Twitter: '',
+    }
+  }
 
   handleChange = e => {
     this.setState({
       form: {
         ...this.state.form,
-        [e.target.name] : e.target.value
+        [e.target.name]: e.target.value
       }
     })
   }
@@ -33,14 +41,15 @@ class BadgeNew extends Component {
           <div className="row">
             <div className="col-6">
               <Badge
-                firstName='Juan'
-                lastName='Sebastian'
-                job='Frontend Developer'
-                twitter='@untalsebastianb'
+                firstName={this.state.form.firstName}
+                lastName={this.state.form.lastName}
+                jobTitle={this.state.form.jobTitle}
+                Twitter={this.state.form.Twitter}
+                email={this.state.form.Email}
               />
             </div>
             <div className="col-6">
-              <BadgeForm onChange={this.handleChange} {...this.state.form}/>
+              <BadgeForm onChange={this.handleChange} {...this.state.form} />
             </div>
           </div>
         </div>
