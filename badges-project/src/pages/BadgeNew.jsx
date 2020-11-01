@@ -4,7 +4,21 @@ import Navbar from '../components/NavBar.jsx'
 import header from '../images/badge-header.svg'
 import '../pages/styles/BadgeNew.css'
 import BadgeForm from '../components/BadgeForm'
+
+
 class BadgeNew extends Component {
+
+  state = { form: {} }
+
+  handleChange = e => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name] : e.target.value
+      }
+    })
+  }
+
 
   render() {
     return (
@@ -26,7 +40,7 @@ class BadgeNew extends Component {
               />
             </div>
             <div className="col-6">
-              <BadgeForm/>
+              <BadgeForm onChange={this.handleChange} {...this.state.form}/>
             </div>
           </div>
         </div>

@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import './global.css'
 import Badge from './components/Badge.jsx';
+import BadgeNew from './pages/BadgeNew.jsx'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Badge
-      firstName='Camilo'
-      lastName='Galvez' 
-    />
+    <BadgeNew/>
   </React.StrictMode>,
   document.getElementById('root')
 );
