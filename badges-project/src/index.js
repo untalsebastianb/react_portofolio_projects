@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import './global.css'
-import Badge from './components/Badge.jsx';
-import BadgeNew from './pages/BadgeNew.jsx'
-import Badges from './pages/Badges';
+import App from './components/App';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Badges/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
