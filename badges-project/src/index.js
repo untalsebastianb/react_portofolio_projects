@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './global.css'
 import Badge from './components/Badge.jsx';
 import BadgeNew from './pages/BadgeNew.jsx'
+import Badges from './pages/Badges';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <BadgeNew/>
+    <Badges/>
   </React.StrictMode>,
   document.getElementById('root')
 );
