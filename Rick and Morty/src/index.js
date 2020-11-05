@@ -51,7 +51,11 @@ class App extends React.Component {
       // Save data to the component state
       this.setState({
         loading: false,
-        data: data,
+        data: {
+          info: data.info,
+          results: [...this.state.data.results, ...data.results]
+
+        },
         nextPage: this.state.nextPage + 1
       })
     } catch (error) {
