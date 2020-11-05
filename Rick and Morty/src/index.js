@@ -21,6 +21,27 @@ function CharacterCard(props) {
 
 class App extends React.Component {
  
+  state = {
+    data: {}
+  }
+
+  URL = 'https://rickandmortyapi.com/api/character/'
+  // Execute when component its mounted on DOM 
+  componentDidMount () {
+    this.fetchCharacters ()
+  }
+
+  // Asynchronous call
+  fetchCharacters = async () => {
+     // Fetch return a reponse
+    const response = await fetch(this.URL)
+    const data = await response.json()
+
+    // Save data to the component state
+    this.setState({
+      data: data
+    })
+  }
 
   render() {
     if (this.state.error) {
