@@ -20,27 +20,41 @@ function CharacterCard(props) {
 }
 
 class App extends React.Component {
- 
+
   state = {
-    data: {}
+    loading: true,
+    error: null,
+    data: {
+      results: []
+    }
   }
 
   URL = 'https://rickandmortyapi.com/api/character/'
   // Execute when component its mounted on DOM 
-  componentDidMount () {
-    this.fetchCharacters ()
+  componentDidMount() {
+    this.fetchCharacters()
   }
 
   // Asynchronous call
   fetchCharacters = async () => {
-     // Fetch return a reponse
-    const response = await fetch(this.URL)
-    const data = await response.json()
+    this.setState({ loading: true, error: null })
 
-    // Save data to the component state
-    this.setState({
-      data: data
-    })
+    // Use try catch to catch error
+    try {
+      // Fetch return a reponse
+      const response = await fetch(this.URL)
+      const data = await response.json()
+
+      // Save data to the component state
+      this.setState({
+        loading: false,
+        data: data
+      })
+    } catch (error) {
+      this.setState({ loading: false, error: error })
+
+    }
+
   }
 
   render() {
