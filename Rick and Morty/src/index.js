@@ -22,6 +22,7 @@ function CharacterCard(props) {
 class App extends React.Component {
 
   state = {
+    nextPage: 1,
     loading: true,
     error: null,
     data: {
@@ -29,7 +30,7 @@ class App extends React.Component {
     }
   }
 
-  URL = 'https://rickandmortyapi.com/api/character/'
+
   // Execute when component its mounted on DOM 
   componentDidMount() {
     this.fetchCharacters()
@@ -42,13 +43,16 @@ class App extends React.Component {
     // Use try catch to catch error
     try {
       // Fetch return a reponse
-      const response = await fetch(this.URL)
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?page=${this.state.nextPage}`
+        )
       const data = await response.json()
 
       // Save data to the component state
       this.setState({
         loading: false,
-        data: data
+        data: data,
+        nextPage: this.state.nextPage + 1
       })
     } catch (error) {
       this.setState({ loading: false, error: error })
@@ -77,6 +81,10 @@ class App extends React.Component {
           </ul>
           {/* Conditional to load */}
           {this.state.loading && <p className="text-center">Loading...</p>}
+          {/* Loading more characters */}
+          {!this.state.loading && this.state.data.info.next && (
+            <button onClick={() => this.fetchCharacters()}>Load More</button>
+          )}
         </div>
       </div>
     );
