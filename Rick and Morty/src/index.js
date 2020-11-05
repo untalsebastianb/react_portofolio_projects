@@ -74,6 +74,8 @@ class App extends React.Component {
               </li>
             ))}
           </ul>
+          {/* Conditional to load */}
+          {this.state.loading && <p className="text-center">Loading...</p>}
         </div>
       </div>
     );
