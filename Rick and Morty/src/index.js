@@ -58,8 +58,9 @@ class App extends React.Component {
   }
 
   render() {
+    // Validate if no errors
     if (this.state.error) {
-      return "Error!";
+      return `Error: ${this.state.error.message}`;
     }
 
     return (
