@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Badge from '../components/Badge.jsx'
 import Navbar from '../components/NavBar.jsx'
-import header from '../images/badge-header.svg'
+import header from '../images/platziconf-logo.svg'
 import '../pages/styles/BadgeNew.css'
 import BadgeForm from '../components/BadgeForm'
+import api from '../api.js'
 
 
 class BadgeNew extends Component {
@@ -12,9 +13,9 @@ class BadgeNew extends Component {
     form: {
       firstName: '',
       lastName: '',
-      Email : '',
+      email: '',
       jobTitle: '',
-      Twitter: '',
+      twitter: '',
     }
   }
 
@@ -27,28 +28,50 @@ class BadgeNew extends Component {
     })
   }
 
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    this.setState({
+      loading: true,
+      error: null
+    })
+    try {
+      this.setState({
+        loading: false
+      })
+      await api.badges.create(this.state.form)
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error
+      })
+    }
+  }
+
 
   render() {
     return (
       <div>
-        
+
         <div className="BadgeNew__hero">
-          <img className="img-fluid" src={header} alt="" />
+          <img className="BadgeNew__hero-image img-fluid" src={header} alt="" />
         </div>
 
         <div className="container">
           <div className="row">
             <div className="col-6">
               <Badge
-                firstName={this.state.form.firstName}
-                lastName={this.state.form.lastName}
-                jobTitle={this.state.form.jobTitle}
-                Twitter={this.state.form.Twitter}
-                email={this.state.form.Email}
+                firstName={this.state.form.firstName || 'First Name'}
+                lastName={this.state.form.lastName || 'Last Name'}
+                jobTitle={this.state.form.jobTitle || 'Job Title'}
+                twitter={this.state.form.twitter || 'Twitter'}
+                email={this.state.form.email || 'Email'}
               />
             </div>
             <div className="col-6">
-              <BadgeForm onChange={this.handleChange} {...this.state.form} />
+              <BadgeForm
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                {...this.state.form} />
             </div>
           </div>
         </div>
