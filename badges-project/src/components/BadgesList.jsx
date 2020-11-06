@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Badge from './Badge'
 import './styles/BadgesList.css'
 import { Link } from 'react-router-dom'
+import Gravatar from './Gravatar'
+
 
 export class BadgesList extends Component {
   render() {
@@ -23,7 +25,10 @@ export class BadgesList extends Component {
         <ul className="list-unstyled" >
           {this.props.badges.map((badge) => (
             <li key={badge.id} className='BadgesListItem'>
-              <img className='BadgesListItem__avatar' src={badge.avatarUrl} alt="Avatar" />
+              <Gravatar
+                className='BadgesListItem__avatar'
+                email={badge.email}
+              />
               <div className='Badge__info__container'>
                 <section className='Badge__info'>{badge.firstName} {badge.lastName}</section>
                 <span className='Twitter__logo ' />
