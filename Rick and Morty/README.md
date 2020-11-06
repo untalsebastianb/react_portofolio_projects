@@ -1,8 +1,8 @@
 # Rick and Morty API ⚛️
 
-This project was made with React JS, its a simple page made that load data from the Rick and Morty API https://rickandmortyapi.com/
+This project was made with React JS, its a simple page that loads data from the Rick and Morty API https://rickandmortyapi.com/
 
-Here I'm Applying the Fetch Asyn function to get data from API, also creating the state and loading more data from API pagination.
+Here I'm Applying the Fetch Async function concept to get data from API, also creating the state and loading more data from API pagination.
 
 
 ## Usage 
