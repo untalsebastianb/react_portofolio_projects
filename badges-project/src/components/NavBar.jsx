@@ -9,7 +9,7 @@ class NavBar extends Component {
       <div className="Navbar">
         <div className="container-fluid">
           <a className="Navbar__brand" href="" >
-            <Link to='/badges'>
+            <Link to='/'>
               <img className="Navbar__brand-logo " src={logo} alt="" />
             </Link>
             <span className="font-weight-light">Platzi</span>
