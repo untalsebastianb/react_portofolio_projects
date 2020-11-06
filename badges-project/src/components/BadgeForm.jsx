@@ -22,13 +22,13 @@ export class BadgeForm extends Component {
 
   render() {
 
-    const { firstName, lastName, Twitter, jobTitle, Email } = this.props
+    const { firstName, lastName, twitter, jobTitle, email } = this.props
 
     return (
       <div>
         <h1>New Attendant</h1>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label>First Name</label>
             <input onChange={this.props.onChange}
@@ -54,8 +54,8 @@ export class BadgeForm extends Component {
             <input onChange={this.props.onChange}
               className='form-control'
               type="email"
-              name='Email'
-              value={Email}
+              name='email'
+              value={email}
             />
           </div>
 
@@ -74,8 +74,8 @@ export class BadgeForm extends Component {
             <input onChange={this.props.onChange}
               className='form-control'
               type="text"
-              name='Twitter'
-              value={Twitter}
+              name='twitter'
+              value={twitter}
             />
           </div>
 
