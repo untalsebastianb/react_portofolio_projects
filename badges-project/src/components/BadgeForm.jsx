@@ -22,7 +22,7 @@ export class BadgeForm extends Component {
 
   render() {
 
-    const { firstName, lastName, twitter, jobTitle, email } = this.props
+    const { firstName, lastName, twitter, jobTitle, email, error } = this.props
 
     return (
       <div>
@@ -80,6 +80,14 @@ export class BadgeForm extends Component {
           </div>
 
           <button onClick={this.handleClick} className="btn btn-primary">Save</button>
+          {error && (
+            <p className="text-danger">{this.props.error.message}</p>
+          )}
+          {/* This is a way to a ternary conditional */}
+          {/* {(error)
+            ? <p className="text-danger">{this.props.error.message}</p>
+            : null
+          } */}
         </form>
       </div>
     )
