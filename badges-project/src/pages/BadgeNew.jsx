@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Badge from '../components/Badge.jsx'
-import Navbar from '../components/NavBar.jsx'
+import PageLoading from '../components/PageLoading.jsx'
 import header from '../images/platziconf-logo.svg'
 import '../pages/styles/BadgeNew.css'
 import BadgeForm from '../components/BadgeForm'
@@ -10,6 +10,8 @@ import api from '../api.js'
 class BadgeNew extends Component {
 
   state = {
+    loading: false,
+    error: null,
     form: {
       firstName: '',
       lastName: '',
@@ -35,20 +37,28 @@ class BadgeNew extends Component {
       error: null
     })
     try {
+      await api.badges.create(this.state.form)
       this.setState({
         loading: false
       })
-      await api.badges.create(this.state.form)
+      // Redirecto to badges
+      this.props.history.push('/badges')
     } catch (error) {
       this.setState({
         loading: false,
         error: error
       })
     }
+    console.log(this.state.loading)
   }
 
 
   render() {
+    // Case loading is true don't want to return the page
+    if (this.state.loading) {
+      return <PageLoading />
+    }
+
     return (
       <div>
 
@@ -71,6 +81,7 @@ class BadgeNew extends Component {
               <BadgeForm
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
+                error={this.state.error}
                 {...this.state.form} />
             </div>
           </div>
