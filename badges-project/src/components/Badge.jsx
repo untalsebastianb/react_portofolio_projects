@@ -2,7 +2,6 @@ import React from 'react'
 import logoConf from '../images/badge-header.svg'
 import Gravatar from './Gravatar'
 import './styles/Badge.css'
-import myAvatar from './styles/sebastiann.png'
 
 class Badge extends React.Component {
   render() {
