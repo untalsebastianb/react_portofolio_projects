@@ -24,7 +24,7 @@ export class BadgesList extends Component {
       <div className='BadgesList'>
         <ul className="list-unstyled" >
           {this.props.badges.map((badge) => (
-            <Link className='text-reset text-decoration-none' to={`/badges/${badge.id}/edit`}>
+            <Link className='text-reset text-decoration-none' to={`/badges/${badge.id}`}>
               <li key={badge.id} className='BadgesListItem'>
                 <Gravatar
                   className='BadgesListItem__avatar'
