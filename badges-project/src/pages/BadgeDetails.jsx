@@ -6,18 +6,37 @@ import Modal from '../components/Modal.jsx'
 import PageError from '../components/PageError.jsx'
 import api from '../api'
 import Badge from '../components/Badge'
+import DeleteBadgeModal from '../components/DeleteBadgeModal.jsx'
 import { Link } from 'react-router-dom'
 
 
 export class BadgeDetails extends Component {
   state = {
+    isOpen: false,
     loading: true,
     error: null,
     data: undefined
   }
 
+  // onClose = (e) => {
+  //   this.setState({ isOpen: false })
+  // }
+
   componentDidMount() {
     this.fetchData()
+  }
+
+  handleDeleteBadge = async (e) => {
+    this.setState({ loading: true, error: null })
+
+    try {
+      await api.badges.remove(this.props.match.params.badgeId)
+      this.setState({ loading: false })
+      this.props.history.push('/badges')
+
+    } catch (error) {
+      this.setState({ loading: false, error: error })
+    }
   }
 
   fetchData = async () => {
@@ -82,8 +101,8 @@ export class BadgeDetails extends Component {
                   </Link>
                 </div>
                 <div>
-                  <button className='btn btn-danger '>Delete</button>
-                  <Modal isOpen={true}/>
+                  <button onClick={() => { this.setState({ isOpen: true }) }} className='btn btn-danger '>Delete</button>
+                  <DeleteBadgeModal isOpen={this.state.isOpen} onClose={() => { this.setState({ isOpen: false }) }} onDeleteBadge={this.handleDeleteBadge} />
                 </div>
               </div>
             </div>
