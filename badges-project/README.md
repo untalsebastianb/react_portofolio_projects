@@ -1,20 +1,20 @@
-# badges-project ⚛️
+# Badges project ⚛️
 
-This project was build using REACT JS  with Create React App, it is an all complete CRUD application about creating badges for a CONF, has advanced features like using useMemo hook to create a filter searc bar, also implemented modals to give the user a good experience.
+This project was build using REACT JS  with Create React App, it is an all complete CRUD application about adding assistants for a CONF, has advanced features like using useMemo hook to create a filter search bar, also implemented modals to give the user a good experience.
 
 Aplied concepts:
 
-✦ Class components
-✦ State with class components
-✦ Life cycle of components
- ✦ componentDidMount()
- ✦ componentDidUpdate()
- ✦ componentWillUnmount()
-✦ Polling
-✦ API CALLS
-✦ FORMS
-✦ onclick and onchange Events
-✦ controlled inputs
+- Class components
+- State with class components
+- Life cycle of components
+  - componentDidMount()
+  - componentDidUpdate()
+  - componentWillUnmount()
+- Polling
+- API CALLS
+- FORMS
+- onclick and onchange Events
+- controlled inputs
 
 ## Available Scripts 🔥
 
