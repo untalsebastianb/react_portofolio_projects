@@ -12,5 +12,5 @@ Here I'm Applying the Fetch Async function concept to get data from API, also cr
 4. Run the project ▶️ : yarn start or npm start 
 
 ### 📝 I wrote some personal notes, Feel free to check it out
-[myNotes.pdf](./myNotes.pdf)
+[myNotes.pdf](.././REACT%20NOTES.pdf)
 
