@@ -3,16 +3,8 @@ import './styles/BadgesList.css'
 import { Link } from 'react-router-dom'
 import Gravatar from './Gravatar'
 
+// Custom hook ⚛️
 function useSearchBadges(badges) {
-  
-}
-
-const BadgesList = (props) => {
-
-  //  const { badges } = props
-  // This two are equivalent 
-  const badges = props.badges
-
   const [query, setQuery] = useState('')
   const [filteredBadges, setFilteredResults] = useState(badges)
 
@@ -26,6 +18,38 @@ const BadgesList = (props) => {
     setFilteredResults(result)
 
   }, [badges, query])
+
+  return { query , setQuery , filteredBadges}  
+}
+
+const BadgesList = (props) => {
+
+  //  const { badges } = props
+  // This two are equivalent 
+  const badges = props.badges
+
+  const { query , setQuery, filteredBadges} = useSearchBadges(badges)
+  
+  // Before create custom hook ✅
+  // const [query, setQuery] = useState('')
+  // const [filteredBadges, setFilteredResults] = useState(badges)
+
+  // useMemo(() => {
+  //   const result = badges.filter(badge => {
+  //     return `${badge.firstName} ${badge.lastName}`
+  //       .toLowerCase()
+  //       .includes(query.toLowerCase())
+  //   })
+
+  //   setFilteredResults(result)
+
+  // }, [badges, query])
+
+  // Filtering with no hooks needed. ✅
+  // const filteredBadges = badges.filter(badge => {
+  //   return `${badge.firstName} ${badge.lastName}`.toLowerCase().includes(query.toLowerCase())	
+  // })
+
 
   if (filteredBadges.length === 0) {
     return (
